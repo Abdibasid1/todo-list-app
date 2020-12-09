@@ -1,17 +1,20 @@
 from application import app, db
 from application.models import Task
+from flask import render_template
 
 @app.route("/")
-@app.route("/home")
+#@app.route("/home")
 def home():
     all_tasks = Task.query.all() #will return a list of all tasks
     output = ""
-    for task in all_tasks:
-        output += task.description +  " - Completed?" + str(task.completed) + "<br>"
-    return output
+    return render_template("index.html", title="Home", all_tasks=all_tasks)
+
+#    for task in all_tasks:
+#        output += task.description +  " - Completed?" + str(task.completed) + "<br>"
+#    return output
 
 @app.route("/create")
-def route():
+def create():
     new_todo = Task(description = "New Task")
     db.session.add(new_todo)
     db.session.commit()
