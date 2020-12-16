@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo apt update
+sudo apt-get update
 sudo apt-get install python3-venv -y
  
 # Test Phase
@@ -14,7 +14,7 @@ source venv/bin/activate
 pip3 install wheel
 python setup.py bdist_wheel 
 pip3 install -r requirement.txt
-cat requirement.txt
+
  
 # pytest goes here
  
