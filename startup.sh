@@ -14,6 +14,7 @@ source venv/bin/activate
 pip3 install wheel
 python setup.py bdist_wheel 
 pip3 install -r requirement.txt
+cat requirement.txt
  
 # pytest goes here
  
@@ -23,4 +24,3 @@ sudo systemctl daemon-reload
 sudo systemctl stop todo-list-app.service
 sudo systemctl start todo-list-app.service
  
-python3 app.py
